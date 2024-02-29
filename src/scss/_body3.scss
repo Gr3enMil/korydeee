@@ -1,0 +1,70 @@
+@import "./mixins.scss";
+$colorMain: white;
+$fontArchivo: "Archivo", sans-serif;
+
+.contact{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    form{
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2{
+            margin: 0 0 1em 0;
+            width: 100%;
+            text-align: center;
+        }
+        input{
+            border: 1px solid rgb(63, 63, 63);
+            width: 80%;
+            margin-bottom: 0.5em;
+            background-color: black;
+        }
+        textarea{
+            border: 1px solid rgb(63, 63, 63);
+            width: 80%;
+            margin-bottom: 0.5em;
+            background-color: black;
+        }
+        button{
+            border: 1px solid rgb(63, 63, 63);
+            background-color: black;
+            color: white;
+            font-weight: 500;
+            padding: 0.5em 1.5em;
+            font-weight: 400;
+            &:hover{
+                font-weight: 600;
+            }
+        }
+    }
+    div{
+        margin-top: 1em;
+        
+        display: flex;
+        flex-direction: column;
+        h2{
+            text-align: center;
+        }
+        .aboutButton{
+            margin-top: 0.5em;
+            align-self: center;
+            border: 2px solid white;
+            background-color: black;
+            padding: 1.2em 4.5em;
+            font-weight: 500;
+            span{
+                color: black;
+                background-color: white;
+                font-weight: 800;
+                padding: 0.05em 0.15em;
+            }
+        }
+    }
+}

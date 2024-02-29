@@ -1,0 +1,41 @@
+@mixin mobile{
+    @media (max-width:649px){
+      @content;
+    }
+}
+@mixin picture{
+    @media (min-width: 400px){
+        @content;
+    }
+}
+@mixin picture2{
+    @media (min-width: 450px){
+        @content;
+    }
+}
+@mixin picture3{
+    @media (min-width: 520px){
+        @content;
+    }
+}
+  
+@mixin tablet{
+    @media (min-width:650px) and (max-width: 1079px){
+      @content;
+    }
+}
+@mixin desktop{
+    @media (min-width: 1080px){
+      @content;
+    }
+}
+
+@mixin hrefButt {
+    padding: 0;
+    border:none;
+    background-color: rgb(255, 255, 255, 0.0);
+    color: $colorMain;
+    font-size: smaller;
+    font-weight: 300;
+    @content;
+  }

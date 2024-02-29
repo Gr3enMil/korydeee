@@ -1,0 +1,106 @@
+@import "./mixins.scss";
+$colorMain: white;
+
+
+.header{
+    position: relative;
+    z-index: 5;
+    //border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    height: 3.8em;
+    margin-top: 0.5em;
+  }
+  .filler{
+    width: 2.7em;
+    @include tablet{
+    width: 3.8em;
+    }
+    @include desktop{
+      width: 20.6em;
+    }
+  }
+    .kory{
+      width: 10em;
+    }
+  .menu{
+    position: relative;
+    margin-top: -20%;
+    @include tablet{
+    padding: 0.5em;
+    }
+    @include desktop{
+      display: none;
+    }
+    cursor: pointer;
+    span{
+      display: block;
+      background-color: $colorMain;
+      border-radius: 2px;
+      height: 3px;
+      width: 2rem;
+      margin: 6px;
+    }
+  }
+  .headerMenu{
+    .nav {
+      opacity: 0;
+      transition: 0.5s ease-out;
+      display: none;
+      @include desktop{
+        opacity: 1;
+        width: 20.6em;
+        display: block; 
+      }
+      ul{
+          display: flex;   
+          @include tablet{
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            gap: 3em;
+          }
+          @include mobile{
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            gap: 3em;
+          }
+        li{
+          list-style: none;
+          color: $colorMain;
+          padding: 0.3em;
+          @include desktop{
+            padding: 1em;
+          }
+        }
+      }
+    }
+  
+    .cross {
+          span {
+            transition: 0.5s ease-out;
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(3.5px, 9px);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(3.5px, -9px);
+          }
+        } 
+      }
+    .mobileMenu1{
+      display: block;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      background-color: black;
+      
+    }
+    .mobileMenu2{
+      opacity:1;
+      transform: translateY(10%);
+    }
+  }
+
+
