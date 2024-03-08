@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
+import Portfolio from "./portfolio"
 import '../scss/App.scss'
 import {
     Link,
@@ -29,7 +30,7 @@ const Home = () => { //main page
         setNav("nav")
         setFooter("footerContainer headerContainer")
       }
-    }
+      }
       
       const allHidden = () => { // menu
         container === "container"? setContainer("container hidden") : setContainer("container")
@@ -44,7 +45,7 @@ const Home = () => { //main page
         }, 10)) : setNav("nav") 
         footer === "footerContainer headerContainer"? setFooter("closed") : null
         footer === "closed"? setFooter("footerContainer headerContainer") : null
-        }
+      }
 
         return(
           <>  
@@ -71,6 +72,7 @@ const Home = () => { //main page
             </div>
           </header>
           <div className={container}>
+            
             <Outlet />
           </div>
           <div className={footer}>

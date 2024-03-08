@@ -44,12 +44,16 @@ a {
   &:focus-visible{
     outline: none;
   }
-} 
+}
 
 .container{
   width: 90vw;
+  max-width: 1000px;
   margin: 0 auto; 
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .headerContainer{   

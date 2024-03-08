@@ -54,10 +54,9 @@ $fontArchivo: "Archivo", sans-serif;
             position: absolute;
             width: 96vw; // mozno prerozdelit dle nastavenych mixinu
             align-self: center;
-            overflow: visible;
             height: auto;
             top:0;
-            left: -4.5%;
+            left: -3.3%;
             @include tablet {
                 display: none;
             }
@@ -90,6 +89,12 @@ $fontArchivo: "Archivo", sans-serif;
         @include picture3{
             padding: 3.9em;
         }
+        @include tablet{
+            padding: 3.80em;
+        }
+        @include desktop{
+            padding: 1em;
+        }
         }
     }
     .aboutButton{
@@ -100,6 +105,9 @@ $fontArchivo: "Archivo", sans-serif;
         background-color: black;
         padding: 1.2em 4.5em;
         font-weight: 500;
+        @include desktop{
+            margin: 3em 10em;
+        }
         span{
             color: black;
             background-color: white;
