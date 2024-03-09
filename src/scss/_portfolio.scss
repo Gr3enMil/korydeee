@@ -15,15 +15,18 @@ $fontArchivo: "Archivo", sans-serif;
     .portMain{
         width: 100%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-between;
+        
         button{
             font-size: 10px;
             font-weight: 400;
-            align-self: flex-start;
+            text-align: left;
             background: none;
             border: none;
-            width: auto;
+            width: 100%;
+            
             span{
                 display: inline-block;
                 width: 5.5px;
@@ -35,71 +38,66 @@ $fontArchivo: "Archivo", sans-serif;
         }
         .row{
             display: flex;
+            gap: 0.5em;
+            justify-content: center;
+            margin-bottom: 2em;
+            } 
+        .col{
+            display: flex;
             flex-direction: column;
             margin-bottom: 2em;
+            width: 100%;
             @include tablet{
-                flex-direction: row;
-                gap: 2em;
+                width: 48%;
             }
             @include desktop{
-                flex-direction: row;
-                gap: 2em;
+                width: 48%;
             }
-            .col{
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 2em;
-                @include tablet{
-                    width: 50%;
-                }
-                @include desktop{
-                    width: 50%;
-                }
-                h1{
-                    font-size: 36px;
-                    line-height: 39.17px;
-                    font-weight: 600;
-                }
-                h2{
-                    font-size: 20px;
-                    line-height: 21.76px;
-                    font-weight: 600;
-                }
-                p{
-                    font-size: 16px;
-                    line-height: 17.41px;
-                    font-weight: 400;
-                }
-                img{
-                    max-width: 100%;
-                    @include tablet{
-                        margin-top: 2em;
-                    }
-                    @include desktop{
-                        margin-top: 2em;
-                    }
-                }
-                .secondPic{
-                    align-self: center;
-                    max-width: 50%;
-                    margin-bottom: 3em;
-                    @include tablet{
-                        max-width: 60%;
-                    }
-                }
+            h1{
+                font-size: 36px;
+                line-height: 39.17px;
+                font-weight: 600;
             }
-            .previous{
-                margin: 0;
+            h2{
+                font-size: 20px;
+                line-height: 21.76px;
+                font-weight: 600;
+            }
+            p{
+                font-size: 16px;
+                line-height: 17.41px;
+                font-weight: 400;
             }
             img{
                 max-width: 100%;
+                @include tablet{
+                    margin-top: 2em;
+                }
+                @include desktop{
+                    margin-top: 2em;
+                }
             }
+            .secondPic{
+                align-self: center;
+                max-width: 50%;
+                margin-bottom: 3em;
+                @include tablet{
+                    max-width: 60%;
+                }
+            }
+        }
+        .previous{
+                margin: 0;
+        }
+        img{
+                max-width: 100%;
         }
         .projects{
             font-size: 20px;
             line-height: 21.76px;
             font-weight: 600;
-            align-self: center;
+            width: 100%;
+            text-align: center;
         }
     }
 }

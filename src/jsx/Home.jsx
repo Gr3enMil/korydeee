@@ -9,19 +9,24 @@ import {
   } from "react-router-dom";
 
 const Home = () => { //main page 
+      const [click, setClick] = useState(true)
       const [container, setContainer] = useState("container")
       const [nav, setNav] = useState("nav")
       const [menu, setMenu] = useState("menu")
-      const [footer, setFooter] = useState("footerContainer headerContainer")
+      const [footer, setFooter] = useState("headerContainer")
       
-      useEffect(() => { // effect na roll-up 
+      useEffect(() => { // effect na roll-up NEFUNGUJE!!!
           let arrow = document.querySelector(".rollup")
-          if (document.body.clientHeight < window.innerHeight) {
+          if (document.body.scrollHeight < window.innerHeight) {
             arrow.classList.add("hidden")
           } else {
             arrow.classList.remove("hidden")
           }
-      },[nav, menu, footer])
+          console.log(document.body.clientHeight)
+          
+          console.log(document.body.scrollHeight)
+          console.log(window.innerHeight)
+      },[nav, menu, footer, container, click])
 
       const visible = () => { // show main po kliknuti v menu
         if (window.innerWidth < 1080) {
@@ -46,6 +51,10 @@ const Home = () => { //main page
         footer === "footerContainer headerContainer"? setFooter("closed") : null
         footer === "closed"? setFooter("footerContainer headerContainer") : null
       }
+      const changed = () => {
+        setClick(prev=>!prev)
+      }
+
 
         return(
           <>  
@@ -71,9 +80,8 @@ const Home = () => { //main page
               </div>
             </div>
           </header>
-          <div className={container}>
-            
-            <Outlet />
+          <div className={container}> 
+            <Outlet onCHange={changed}/>
           </div>
           <div className={footer}>
             <footer className='footer'>

@@ -14,7 +14,7 @@ const Portfolios = () => {
           setLoad(false);
       })();
     }, []);
-    // id to search object from json
+    // id to identify object from json
     let { id } = useParams();
     // variable for next url
     let next = ((Number(id) + 1) > page.length)? 1 : Number(id) + 1;
@@ -32,7 +32,6 @@ const Portfolios = () => {
         <div className='portContainer' key={id}>
             <div className='portMain' >
                 <button><Link to="../portfolio"><span></span> Back to portfolio</Link></button>
-                <div className='1st row'>
                     <div className='col'>
                         <h1>{product.title}</h1>
                         <p>{product.titleparagraph}</p>
@@ -43,8 +42,7 @@ const Portfolios = () => {
                     <div className='col'>
                         <img src={product.titleimage} />
                     </div>
-                </div>
-                <div className='2nd row'>
+                
                     <div className='col'>
                         <h2>Problem</h2>
                         <p>{product.problem}</p>
@@ -54,20 +52,18 @@ const Portfolios = () => {
                     <div className='col'>
                         {product.secondimage && <img src={product.secondimage} className='secondPic'/>}
                     </div>
-                </div>
-                <div className='3rd row'> 
+                
                     {product.thirdimage && <div className='col'>
                         <img src={product.thirdimage} />
                     </div>}
-                    {product.a1h1 && product.a1p1 && product.a1h2 && product.a1p2 && <div className='col'>
+                    {(product.a1h1 || product.a1h2) && <div className='col'>
                         {product.a1h1 && <h2>{product.a1h1}</h2>}
                         {product.a1p1 && <p>{product.a1p1}</p>}
                         {product.a1h2 && <h2>{product.a1h2}</h2>}
                         {product.a1p2 && <p>{product.a1p2}</p>}
                     </div>}
-                </div>
-                <div className='4th row'>    
-                    {product.a2h1 && product.a2p1 && product.a2h2 && product.a2p2 && <div className='col'>
+                  
+                    {(product.a2h1 || product.a2h2) && <div className='col'>
                         {product.a2h1 && <h2>{product.a2h1}</h2>}
                         {product.a2p1 && <p>{product.a2p1}</p>}
                         {product.a2h2 && <h2>{product.a2h2}</h2>}
@@ -76,18 +72,17 @@ const Portfolios = () => {
                     {product.fourthimage && <div className='col'>
                         <img src={product.fourthimage} />
                     </div>}              
-                </div>
-                <div className='5th row'> 
+            
                     {product.fifthimage && <div className='col'>
                         <img src={product.fifthimage} />
                     </div>}
-                    {product.a3h1 && product.a3p1 && product.a3h2 && product.a3p2 && <div className='col'>
+                    {(product.a3h1 || product.a3h2) && <div className='col'>
                         {product.a3h1 && <h2>{product.a3h1}</h2>}
                         {product.a3p1 && <p>{product.a3p1}</p>}
                         {product.a3h2 && <h2>{product.a3h2}</h2>}
                         {product.a3p2 && <p>{product.a3p2}</p>}  
                     </div>}
-                </div>
+                
                 <h2 className='projects'>More projects</h2>
                 <div className='row'>
                     <div className='col previous'>
@@ -107,5 +102,7 @@ const Portfolios = () => {
 }
 
 export default Portfolios; 
-//teoreticky by to slo predelat tak,
-// ze bych vyradil "rows", ale ...
+
+// vypodminkovani odstavcu obsahuje chybu
+// pri absenci kterehokoliv z nich zmizi cely odstavec
+// podivej se na logical operator  ...
