@@ -14,7 +14,7 @@ const Portfolio = () => {
   }, []);
 
   const portfolioItems = page.map(item => {
-      const {id, title, titleparagraph, client, role, year, titleimage} = item;
+      const {id, title, titleimage} = item;
         return (
                 <section className="pictureSection" key={id}>
                       <Link to={`/portfolios/${id}`}>
