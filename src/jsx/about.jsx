@@ -17,7 +17,7 @@ const About = () => {
           <img src='src\assets\kory2.png' alt="korydee" id="mobilePic" />
         </div>
         <div className='aboutLogos'>
-          <img src='src\assets\skoda.png' alt="Skoda" className='skoda'/>
+          <img src='skoda.png' alt="Skoda" className='skoda'/>
           <img src='src\assets\lego.png' alt="Lego" />
           <img src='src\assets\vw.png' alt="VW" />
           <img src='src\assets\nestle.png' alt="Nestle" className='nestle'/>
