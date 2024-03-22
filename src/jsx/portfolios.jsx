@@ -1,15 +1,16 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useOutletContext} from "react-router-dom";
 
 const Portfolios = () => {
+    const [size, setSize] = useOutletContext()
     const [page, setPage] = useState([]);
     const [load, setLoad] = useState(true);
     useEffect(() => {
         (async () => {
           const data = await fetch("../project.json")
               .then(res=> res.json())
-
+          setSize(x=>x+1) //state change given to parent
           setPage(data);
           setLoad(false);
       })();
@@ -20,10 +21,19 @@ const Portfolios = () => {
     let next = ((Number(id) + 1) > page.length)? 1 : Number(id) + 1;
     //variable for previous url
     let prev = (Number(id) - 1) === 0? page.length : Number(id) - 1;
-    
-    
-
+    //function for previous page
+    let prevPage = () => {
+        setSize(x=>x+1)
+    }
+  
     const product = page.find(product => String(product.id) === id);
+    const slowScroll = () => {window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+
     
     if (load){ // condition to render page after useEffect load
         return <div>Loading...</div>
@@ -31,7 +41,7 @@ const Portfolios = () => {
     return (
         <div className='portContainer' key={id}>
             <div className='portMain' >
-                <button><Link to="../portfolio"><span></span> Back to portfolio</Link></button>
+                <button onClick={prevPage}><Link to="../"><span></span> Back to portfolio</Link></button>
                     <div className='col'>
                         <h1>{product.title}</h1>
                         <p>{product.titleparagraph}</p>
@@ -85,12 +95,12 @@ const Portfolios = () => {
                 
                 <h2 className='projects'>More projects</h2>
                 <div className='row'>
-                    <div className='col previous'>
+                    <div className='col previous' onClick={slowScroll}>
                         <Link to={`/portfolios/${prev}`}>
                             <img src={`../../src/assets/title${prev}.png`} />
                         </Link>
                     </div>
-                    <div className='col next'>
+                    <div className='col next' onClick={slowScroll}>
                         <Link to={`/portfolios/${next}`}>
                             <img src={`../../src/assets/title${next}.png`} />
                         </Link>
@@ -103,6 +113,8 @@ const Portfolios = () => {
 
 export default Portfolios; 
 
-// vypodminkovani odstavcu obsahuje chybu
-// pri absenci kterehokoliv z nich zmizi cely odstavec
-// podivej se na logical operator  ...
+/* window.scrollTo({
+  top: 0,
+  left: 0,
+  behavior: "smooth",
+}); */

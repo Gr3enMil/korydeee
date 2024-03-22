@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
-import Portfolio from "./portfolio"
 import '../scss/App.scss'
 import {
     Link,
@@ -9,24 +8,21 @@ import {
   } from "react-router-dom";
 
 const Home = () => { //main page 
-      const [click, setClick] = useState(true)
+      const [size, setSize] = useState(0)
       const [container, setContainer] = useState("container")
       const [nav, setNav] = useState("nav")
       const [menu, setMenu] = useState("menu")
       const [footer, setFooter] = useState("headerContainer")
       
-      useEffect(() => { // effect na roll-up NEFUNGUJE!!!
+      useEffect(() => { // effect na roll-up
           let arrow = document.querySelector(".rollup")
           if (document.body.scrollHeight < window.innerHeight) {
             arrow.classList.add("hidden")
           } else {
             arrow.classList.remove("hidden")
           }
-          console.log(document.body.clientHeight)
           
-          console.log(document.body.scrollHeight)
-          console.log(window.innerHeight)
-      },[nav, menu, footer, container, click])
+      },[nav, menu, footer, container, size])
 
       const visible = () => { // show main po kliknuti v menu
         if (window.innerWidth < 1080) {
@@ -34,7 +30,8 @@ const Home = () => { //main page
         setMenu("menu")
         setNav("nav")
         setFooter("footerContainer headerContainer")
-      }
+      } 
+      setSize(x=>x+1)
       }
       
       const allHidden = () => { // menu
@@ -51,10 +48,6 @@ const Home = () => { //main page
         footer === "footerContainer headerContainer"? setFooter("closed") : null
         footer === "closed"? setFooter("footerContainer headerContainer") : null
       }
-      const changed = () => {
-        setClick(prev=>!prev)
-      }
-
 
         return(
           <>  
@@ -62,7 +55,7 @@ const Home = () => { //main page
             <div className="headerContainer">
               <div className="filler"></div>
               <div className="headerLogo">
-                <img src= "src\assets\logo.png" className="kory" alt='KOROUS.DESIGN'></img>
+                <div className='kory'>KOROUS.DESIGN</div>
               </div>
               <div className="headerMenu">
                       <div className={menu} onClick={allHidden}>
@@ -72,21 +65,25 @@ const Home = () => { //main page
                       </div>
                   <nav className={nav}>
                     <ul>
-                      <li><Link to="/portfolio" onClick={visible}>Portfolio</Link></li>
+                      <li><Link to="/" onClick={visible}>Portfolio</Link></li>
                       <li><Link to="/about" onClick={visible}>About Me</Link></li>
-                      <li id="last"><Link to="/contact" onClick={visible}>Contact</Link></li>
+                      <li><Link to="/contact" onClick={visible}>Contact</Link></li>
                     </ul>
                   </nav>
               </div>
             </div>
           </header>
           <div className={container}> 
-            <Outlet onCHange={changed}/>
+            <Outlet context={[size, setSize]}/>
           </div>
           <div className={footer}>
             <footer className='footer'>
               <div className='rollup'>
-                <a href="#header"><img src='src\assets\arrow.png' alt='arrow' /></a>
+                <a onClick={()=>window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                })}>❮</a>
               </div>
               <div className='footerRight'>
                 <p>© 2024, Korous Design</p>

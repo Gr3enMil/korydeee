@@ -16,16 +16,34 @@ $colorMain: white;
     }
   }
 .rollup{
+  transform: rotate(90deg);
   cursor: pointer;
-  width: 3em;
-  height: 3em;
-  padding: 0.1em;
   border-radius: 50%;
   position: absolute;
-  top: -3.5em;
-  left: 47%;
+  top: -5em;
+  a{
+    font-size: 4em;
+    opacity: 0.3;
+    font-weight: 100;
+    color: rgba(158, 157, 157, 0.479);
+    &:focus{
+    text-decoration: none;
+    }
+  }
   @include mobile {
     left: 45%;
+  }
+  @include picture2 {
+    left: 46%;
+  }
+  @include picture3 {
+    left: 47%;
+  }
+  @include tablet {
+    left: 48%;
+  }
+  @include desktop {
+    left: 48.5%;
   }
   img{
     width: 100%;

@@ -17,12 +17,12 @@ const About = () => {
           <img src='src\assets\kory2.png' alt="korydee" id="mobilePic" />
         </div>
         <div className='aboutLogos'>
-          <img src='src\assets\skoda.png' alt="Skoda" />
+          <img src='src\assets\skoda.png' alt="Skoda" className='skoda'/>
           <img src='src\assets\lego.png' alt="Lego" />
           <img src='src\assets\vw.png' alt="VW" />
-          <img src='src\assets\nestle.png' alt="Nestle" />
+          <img src='src\assets\nestle.png' alt="Nestle" className='nestle'/>
           <img src='src\assets\aricoma.png' alt="Aricoma" />
-          <img src='src\assets\windingtree.png' alt='Windingtree' />
+          <img src='src\assets\windingtree.png' alt='Windingtree' className='windingtree'/>
         </div>
         <button className='aboutButton' onClick={linkedClick}>Linked <span className='in'>in</span></button>
       </main>
