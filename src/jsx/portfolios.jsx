@@ -97,12 +97,12 @@ const Portfolios = () => {
                 <div className='row'>
                     <div className='col previous' onClick={slowScroll}>
                         <Link to={`/portfolios/${prev}`}>
-                            <img src={`../../src/assets/title${prev}.png`} />
+                            <img src={`../title${prev}.png`} />
                         </Link>
                     </div>
                     <div className='col next' onClick={slowScroll}>
                         <Link to={`/portfolios/${next}`}>
-                            <img src={`../../src/assets/title${next}.png`} />
+                            <img src={`../title${next}.png`} />
                         </Link>
                     </div>
                 </div>                

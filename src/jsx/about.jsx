@@ -13,16 +13,16 @@ const About = () => {
           <p className='aboutTextP'>I usually focus on bringing the biggest value to the user, as I like to create things that are functional, intuitive, easy to use and playful. I believe in an individual approach to each product and its users.</p>
         </div> 
         <div className='aboutPic'>
-          <img src='src\assets\dan.png' alt="koryDan" id="tabletPic" />
-          <img src='src\assets\kory2.png' alt="korydee" id="mobilePic" />
+          <img src='../dan.png' alt="koryDan" id="tabletPic" />
+          <img src='../kory2.png' alt="korydee" id="mobilePic" />
         </div>
         <div className='aboutLogos'>
-          <img src='src\assets\skoda.png' alt="Skoda" className='skoda'/>
-          <img src='src\assets\lego.png' alt="Lego" />
-          <img src='src\assets\vw.png' alt="VW" />
-          <img src='src\assets\nestle.png' alt="Nestle" className='nestle'/>
-          <img src='src\assets\aricoma.png' alt="Aricoma" />
-          <img src='src\assets\windingtree.png' alt='Windingtree' className='windingtree'/>
+          <img src='../skoda.png' alt="Skoda" className='skoda'/>
+          <img src='../lego.png' alt="Lego" />
+          <img src='../vw.png' alt="VW" />
+          <img src='../nestle.png' alt="Nestle" className='nestle'/>
+          <img src='../aricoma.png' alt="Aricoma" />
+          <img src='../windingtree.png' alt='Windingtree' className='windingtree'/>
         </div>
         <button className='aboutButton' onClick={linkedClick}>Linked <span className='in'>in</span></button>
       </main>
