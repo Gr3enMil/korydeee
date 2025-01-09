@@ -1,5 +1,3 @@
-import React from "react";
-
 const Contact = () => {
     const linkedClick = () => { // odkaz na LinkedIn
         window.open('https://www.linkedin.com/in/danielkorous/', '_blank')

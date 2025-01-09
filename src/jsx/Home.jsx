@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import React from 'react';
 import '../scss/App.scss'
 import {
     Link,
-    NavLink,
     Outlet,
   } from "react-router-dom";
 

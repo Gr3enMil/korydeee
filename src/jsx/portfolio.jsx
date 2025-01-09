@@ -1,5 +1,4 @@
 import { useState, useEffect} from 'react';
-import React from 'react';
 import {Link} from "react-router-dom";
 
 const Portfolio = () => {
@@ -14,14 +13,13 @@ const Portfolio = () => {
   }, []);
 
   const portfolioItems = page.map(item => {
-      const {id, title, titleimage} = item;
+      const {id, theme, tag, title, titleimage} = item;
         return (
                 <section className="pictureSection" key={id}>
-                      <Link to={`/portfolios/${id}`}>
+                      <Link to={`/portfolios/${id}`} className={theme}>
+                          <h2>{title}</h2>
                           <img src={titleimage} />
-                          <div className='title'>
-                            <p>{title}</p>
-                          </div>
+                          <p>{tag}</p>
                       </Link>
                 </section>       
         )

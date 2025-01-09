@@ -1,5 +1,3 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
 import '../scss/App.scss'
 import Home from "./Home"
 import Portfolio from "./portfolio"
@@ -9,7 +7,6 @@ import Portfolios from "./portfolios"
 import {
   Routes,
   Route,
-  useParams
 } from "react-router-dom";
 
 const App = () => {
