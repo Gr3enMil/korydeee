@@ -13,13 +13,13 @@ const Portfolio = () => {
   }, []);
 
   const portfolioItems = page.map(item => {
-      const {id, theme, tag, title, titleimage} = item;
+      const {id, theme, role, title, titleimage} = item;
         return (
                 <section className="pictureSection" key={id}>
                       <Link to={`/portfolios/${id}`} className={theme}>
                           <h2>{title}</h2>
                           <img src={titleimage} />
-                          <p>{tag}</p>
+                          <p>{role}</p>
                       </Link>
                 </section>       
         )

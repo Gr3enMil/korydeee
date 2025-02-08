@@ -6,18 +6,20 @@
 @import "./contact.scss";
 @import "./mixins.scss";
 @import "./portfolio.scss";
+@import "./variables.scss";
 
-$colorMain: white;
+
 
 #root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #0C0C0C;
 }
 
-.hidden{
-  display:none !important;
-}
+/*.hidden{              pitty that guy don't want this feature
+  display: none;
+} */
 
 .opened{
   display: block;
@@ -55,17 +57,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.headerContainer{   
-  width: 85vw;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 
+  background-color: #0C0C0C;
 }
 
 button{

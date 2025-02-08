@@ -1,4 +1,3 @@
-import React from 'react';
 import {useState, useEffect} from 'react';
 import {Link, useParams, useOutletContext} from "react-router-dom";
 
@@ -45,9 +44,8 @@ const Portfolios = () => {
                     <div className='col'>
                         <h1>{product.title}</h1>
                         <p>{product.titleparagraph}</p>
-                        <p>Client: {product.client}<br/>
-                        Role: {product.role}<br/>
-                        Year: {product.year}</p> 
+                        <p>{product.titleparagraph2} </p>
+                        <p>Role: {product.role}</p> 
                     </div>
                     <div className='col'>
                         <img src={product.titleimage} />
@@ -58,19 +56,26 @@ const Portfolios = () => {
                         <p>{product.problem}</p>
                         <h2>Solution</h2>
                         <p>{product.solution}</p>
+                        {product.dot1 && <ul>
+                            <li>{product.dot1}</li>
+                            <li>{product.dot2}</li>
+                            <li>{product.dot3}</li>
+                        </ul>}
                     </div>
                     <div className='col'>
-                        {product.secondimage && <img src={product.secondimage} className='secondPic'/>}
+                        {product.secondimage && <img src={product.secondimage} />}
+                        {product.secondimage2 && <img src={product.secondimage2} />}
                     </div>
-                
                     {product.thirdimage && <div className='col'>
                         <img src={product.thirdimage} />
+                        <img src={product.thirdimage2} />
                     </div>}
                     {(product.a1h1 || product.a1h2) && <div className='col'>
                         {product.a1h1 && <h2>{product.a1h1}</h2>}
                         {product.a1p1 && <p>{product.a1p1}</p>}
                         {product.a1h2 && <h2>{product.a1h2}</h2>}
                         {product.a1p2 && <p>{product.a1p2}</p>}
+                        {product.a1p3 && <p>{product.a1p3}</p>}
                     </div>}
                   
                     {(product.a2h1 || product.a2h2) && <div className='col'>
@@ -78,10 +83,12 @@ const Portfolios = () => {
                         {product.a2p1 && <p>{product.a2p1}</p>}
                         {product.a2h2 && <h2>{product.a2h2}</h2>}
                         {product.a2p2 && <p>{product.a2p2}</p>}
+                        {product.a2p3 && <p>{product.a2p3}</p>}
                     </div>}
                     {product.fourthimage && <div className='col'>
                         <img src={product.fourthimage} />
-                    </div>}              
+                        <img src={product.fourthimage2} />
+                    </div>}               
             
                     {product.fifthimage && <div className='col'>
                         <img src={product.fifthimage} />

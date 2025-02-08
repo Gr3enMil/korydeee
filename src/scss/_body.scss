@@ -1,6 +1,5 @@
 @import "./mixins.scss";
-$colorMain: white;
-$fontArchivo: "Archivo", sans-serif;
+@import "./variables.scss";
 
 *{
   font-family: $fontArchivo;
@@ -10,8 +9,10 @@ $fontArchivo: "Archivo", sans-serif;
   display: flex;
   flex-direction: column;
   margin-bottom: 2em;
+  
   @include mobile{
     align-items: center;
+    gap: 2rem;
   }
   @include tablet{
     flex-direction: row;
@@ -19,7 +20,7 @@ $fontArchivo: "Archivo", sans-serif;
     align-items: baseline;
     flex-wrap: wrap;
     margin-bottom: 2em;
-    gap: 0.5em 1em;
+    gap: 2rem;
   }
   @include desktop{
     flex-direction: row; 
@@ -28,12 +29,13 @@ $fontArchivo: "Archivo", sans-serif;
     flex-wrap: wrap;
     margin-bottom: 6em;
     margin-top: 2em;
-    gap: 0.5em 1em;
+    gap: 1rem;
   }
   .pictureSection{    
     width: 20rem;
     height: 20rem;
     overflow: hidden;
+    
     @include tablet{
       max-width: 48%;
     }
@@ -78,7 +80,7 @@ $fontArchivo: "Archivo", sans-serif;
         }
         &:hover img{
           z-index: 4;
-            transform: translate(-3.2rem, 2rem) scale(1.3);
+            transform: translate(-3.2rem, 2rem) scale(1.15);
           }
                   
     }

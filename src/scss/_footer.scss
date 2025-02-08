@@ -1,26 +1,12 @@
 @import "./mixins.scss";
-$colorMain: white;
+@import "./variables.scss";
 
-.footer{
-    display:flex;
-    width: 100vw;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    margin-top: 2em;
-    position: relative;
-    .footerRight{
-      position: absolute;
-      right: 0;
-      font-size: small;
-      font-weight: 200;
-      color: rgba(158, 157, 157, 0.479);
-    }
-  }
 .rollup{
   transform: rotate(90deg);
   cursor: pointer;
   border-radius: 50%;
   position: absolute;
-  top: -5em;
+  top: -7em;
   a{
     font-size: 4em;
     opacity: 0.3;

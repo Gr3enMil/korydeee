@@ -1,5 +1,3 @@
-import React from 'react';
-
 const About = () => {
     const linkedClick = () => { // odkaz na LinkedIn
         window.open('https://www.linkedin.com/in/danielkorous/', '_blank')
@@ -7,16 +5,13 @@ const About = () => {
     return (
         <main className="about" id="about">
         <div className='aboutText'>
-          <h2>Hi!</h2>
-          <p className='aboutTextP'>Pleasure to meet you, I am a designer with a history of working in the Information technology and services industry. I am very strong in Prototyping, Research, Analysis, Brainstorming Ideas, Teamwork and Creating effective design solutions to specific newfound problems. </p>
-          <p className='aboutTextP'>I have been designing for over 7 years and already had a chance to work on many wonderful projects for a wide range of customers from Škoda Auto, LEGO and Nestlé to Blockchain startups and small businesses.</p>
-          <p className='aboutTextP'>I usually focus on bringing the biggest value to the user, as I like to create things that are functional, intuitive, easy to use and playful. I believe in an individual approach to each product and its users.</p>
+          <h1>Let’s put purpose<br></br>to those pixels!</h1>
+          <p>Born in the mid-90s, I grew up immersed in the tech evolution, watching it shape the world and myself. Over time, I transitioned from a curious user to a dedicated designer, focused on making technology more human-centered and serving it’s purpose.</p>
+          <p>With over 7 years of experience, I specialize in crafting functional, intuitive and playful design solutions. I’ve worked with brands like Volkswagen, Škoda Auto, LEGO and Nestlé as well as Blockchain startups and other small businesses, learning that every project requires a unique approach tailored to its time, business, technology and users.</p>
+          <p>To me, design is about solving problems and delivering real value to every party. </p>
         </div> 
-        <div className='aboutPic'>
-          <img src='../dan.png' alt="koryDan" id="tabletPic" />
-          <img src='../kory2.png' alt="korydee" id="mobilePic" />
-        </div>
         <div className='aboutLogos'>
+          <h2>Past experience</h2>
           <img src='../skoda.png' alt="Skoda" className='skoda'/>
           <img src='../lego.png' alt="Lego" />
           <img src='../vw.png' alt="VW" />
@@ -24,7 +19,6 @@ const About = () => {
           <img src='../aricoma.png' alt="Aricoma" />
           <img src='../windingtree.png' alt='Windingtree' className='windingtree'/>
         </div>
-        <button className='aboutButton' onClick={linkedClick}>Linked <span className='in'>in</span></button>
       </main>
     )
 }

@@ -64,7 +64,7 @@ const Home = () => { //main page
                   <nav className={nav}>
                     <ul>
                       <li><Link to="/" onClick={visible}>Portfolio</Link></li>
-                      <li><Link to="/about" onClick={visible}>About Me</Link></li>
+                      <li><Link to="/about" onClick={visible}>About</Link></li>
                       <li><Link to="/contact" onClick={visible}>Contact</Link></li>
                     </ul>
                   </nav>
@@ -74,20 +74,13 @@ const Home = () => { //main page
           <div className={container}> 
             <Outlet context={[size, setSize]}/>
           </div>
-          <div className={footer}>
-            <footer className='footer'>
-              <div className='rollup'>
+          <div className='rollup'>
                 <a onClick={()=>window.scrollTo({
                   top: 0,
                   left: 0,
                   behavior: "smooth",
                 })}>❮</a>
               </div>
-              <div className='footerRight'>
-                <p>© 2024, Korous Design</p>
-              </div>
-            </footer>
-          </div>
           </>
         )
 }

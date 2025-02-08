@@ -1,6 +1,7 @@
 @import "./mixins.scss";
-$colorMain: white;
-$fontArchivo: "Archivo", sans-serif;
+@import "./variables.scss";
+
+
 
 .portContainer {
     width: 90%;
