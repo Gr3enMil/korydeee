@@ -1,55 +1,51 @@
 @import "./mixins.scss";
 @import "./variables.scss";
 
-*{
-  font-family: $fontArchivo;
-}
 
 .portfolio{
   display: flex;
-  flex-direction: column;
-  margin-bottom: 2em;
-  
-  @include mobile{
-    align-items: center;
-    gap: 2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  font-family: $fontArchivo;
+  h1 {
+    font-size: $h1m;
+    font-weight: $header;
+    max-width: 18rem;
+  }
+  h3 {
+    font-size: $h3a;
+    font-weight: $header;
+    color: rgba(255, 255, 255, 0.473);
+    margin-left: 1rem;
   }
   @include tablet{
-    flex-direction: row;
-    justify-content: center;
-    align-items: baseline;
-    flex-wrap: wrap;
-    margin-bottom: 2em;
+    width: 46rem;
     gap: 2rem;
   }
   @include desktop{
-    flex-direction: row; 
-    justify-content: flex-start;
-    align-items: baseline;
-    flex-wrap: wrap;
+    width: 46rem;
     margin-bottom: 6em;
     margin-top: 2em;
-    gap: 1rem;
+    gap: 2rem;
+  }
+  @media (min-width: 1246px) {
+    width: 100%;
   }
   .pictureSection{    
-    width: 20rem;
-    height: 20rem;
+    min-width: 22rem;
+    height: 22rem;
     overflow: hidden;
-    
-    @include tablet{
-      max-width: 48%;
-    }
-    @include desktop{
-      max-width: 32%;
-    }
+   
     .blue {
-      background: linear-gradient(to bottom right, black 50%, #075d8f91 90%);
+      background: linear-gradient(to bottom right, black 40%, #075d8f91 80%);
     }
     .red {
-      background: linear-gradient(to bottom right, black 50%, #750000ab 90%);
+      background: linear-gradient(to bottom right, black 40%, #750000ab 80%);
     }
     .purple {
-      background: linear-gradient(to bottom right, black 50%, #5c0064c2 90%);
+      background: linear-gradient(to bottom right, black 40%, #5c0064c2 80%);
     }
     a{
       position: relative;
@@ -58,34 +54,34 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-        h2 {
-          font-weight: 800;
-          font-size: 3.5rem;
-          margin: 0.5rem 0 0 0.5rem;
-          line-height: 1.1;
-          z-index: 3;
-        }
         img{
-          transform: scale(0.75);
+          transform: scale(0.95);
           position: absolute;
-          top: 1rem;
-          right: -0.5rem;
+          top: 5rem;
+          right: 0;
           z-index: 2;
           transition: transform 0.3s ease;
         }
-        p {
-          font-size: 1rem;
-          opacity: 0.3;
-          margin: 0 0 0.5rem 0.5rem;
-        }
         &:hover img{
           z-index: 4;
-            transform: translate(-3.2rem, 2rem) scale(1.15);
+            transform: translate(-4.6rem, 0.5rem) scale(1.4);
           }
+        &:hover h1, &:hover h3{
+          opacity: 0;
+        }
                   
     }
   }
-
 } 
+@media (min-width: 817px) {
+  .pictureSection:nth-child(3) {
+    margin-right: auto;
+  }
+}
+@include desktop {
+  .pictureSection:nth-child(3) {
+    margin-right: auto;
+  }
+}
   
   

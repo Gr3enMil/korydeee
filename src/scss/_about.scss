@@ -19,85 +19,43 @@ p {
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    font-family: $fontArchivo;
+    max-width: 640px;
     @include tablet{
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
         gap:3em;
     }
     @include desktop {
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
         gap:3em;
     }
     .aboutText{
         @include tablet{
-            max-width: 35%;
+            max-width: 80%;
         }
         @include desktop{
-            max-width: 35%;
+            max-width: 80%;
         }
     }
-    .aboutPic{
-        display: flex;
-        position: relative;
-        height: 250px;
-        @include picture{
-            height: 280px;
-        }
-        @include picture2{
-            height: 320px;
-        }
-        @include picture3{
-            height: 380px;
-        }
-        #mobilePic{
-            position: absolute;
-            width: 96vw; // mozno prerozdelit dle nastavenych mixinu
-            align-self: center;
-            height: auto;
-            top:0;
-            left: -3.3%;
-            @include tablet {
-                display: none;
-            }
-            @include desktop{
-                display: none;
-            }
-        }
-        #tabletPic{
-            @include mobile{
-                display: none;
-            } 
-            margin-top: 1.5em; 
-        }
-    }
+    
     .aboutLogos{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        max-width: 20rem; 
+        @include tablet{
+            max-width: 100%;
+        }
+        @include desktop{
+            max-width: 100%;
+        }
         img{
             width: 70px;
             height: 70px;
             padding: 1em;
-        @include picture{
-            padding: 1em;
-        }
-        @include picture2{
-            padding: 2em;
-        }
-        @include picture3{
-            padding: 2.9em;
-        }
-        @include tablet{
-            padding: 2.8em;
-        }
-        @include desktop{
-            padding: 0.5em;
-        }
         }
         .skoda{
             width: 65px;
@@ -109,24 +67,6 @@ p {
             width: 102px;
             height: 102px;
             padding: 0;
-        }
-    }
-    .aboutButton{
-        margin-top: 2em;
-        margin-bottom: 2em;
-        align-self: center;
-        border: 2px solid white;
-        background-color: black;
-        padding: 1.2em 4.5em;
-        font-weight: 500;
-        @include desktop{
-            margin: 3em 10em;
-        }
-        span{
-            color: black;
-            background-color: white;
-            font-weight: 800;
-            padding: 0.05em 0.15em;
         }
     }
 }

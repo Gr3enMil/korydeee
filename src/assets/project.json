@@ -4,7 +4,7 @@
         "theme": "red",
         "title": "Fitness Trainer Website",
         "titleparagraph": "Barbara’s fitness coaching brand needed a robust digital presence to connect with clients, showcase services, and emphasize the results-driven approach to fitness. The goal was to create a user-friendly, visually appealing website to convert visitors into customers.",
-        "role": "UX/UI design",
+        "role": "UX/UI designer",
         "titleimage": "../bara1.png",
         "secondimage": "../bara2.png", 
         "thirdimage": "../bara3.png",
@@ -33,7 +33,7 @@
     {
         "id": 2,
         "theme": "purple",
-        "title": "Casting Agencies Mobile App",
+        "title": "Casting agencies Mobile App",
         "titleparagraph": "My client for this project was a startup company trying to come up with a business solution to connect fashion models with agencies and event managers. They had very clear business vision and just needed a designer that could articulate their ideas into a final product and help them with shaping some of their functionalities to perfection.",
         "role": "Product design",
         "titleimage": "../casting1.png",
@@ -62,7 +62,7 @@
     {
         "id": 3,
         "theme": "blue",
-        "title": "Solar Installations Website",
+        "title": "Solar installations Website",
         "titleparagraph": "The story about how we connected company and its goals with clear web design, communication and customer needs.",
         "titleparagraph2 ": "My client reached out to me with a need for a functional responsive website that would help them with clear communication that they are number one on the market, build a trust, educate about the topic and get potential client's contact.",
         "role": "UX/UI Design",

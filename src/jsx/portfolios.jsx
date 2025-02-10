@@ -22,7 +22,7 @@ const Portfolios = () => {
     let prev = (Number(id) - 1) === 0? page.length : Number(id) - 1;
     //function for previous page
     let prevPage = () => {
-        setSize(x=>x+1)
+        setSize(x=>x+1) 
     }
   
     const product = page.find(product => String(product.id) === id);
@@ -41,17 +41,17 @@ const Portfolios = () => {
         <div className='portContainer' key={id}>
             <div className='portMain' >
                 <button onClick={prevPage}><Link to="../"><span></span> Back to portfolio</Link></button>
-                    <div className='col'>
+                    <div className='col col1'>
                         <h1>{product.title}</h1>
                         <p>{product.titleparagraph}</p>
                         <p>{product.titleparagraph2} </p>
                         <p>Role: {product.role}</p> 
                     </div>
-                    <div className='col'>
+                    <div className='col col2'>
                         <img src={product.titleimage} />
                     </div>
                 
-                    <div className='col'>
+                    <div className='col col3'>
                         <h2>Problem</h2>
                         <p>{product.problem}</p>
                         <h2>Solution</h2>
@@ -62,15 +62,14 @@ const Portfolios = () => {
                             <li>{product.dot3}</li>
                         </ul>}
                     </div>
-                    <div className='col'>
+                    <div className='col col4'>
                         {product.secondimage && <img src={product.secondimage} />}
-                        {product.secondimage2 && <img src={product.secondimage2} />}
-                    </div>
-                    {product.thirdimage && <div className='col'>
+                        {product.secondimage2 && <img src={product.secondimage2} /> }                    </div>
+                    {product.thirdimage && <div className='col col5'>
                         <img src={product.thirdimage} />
-                        <img src={product.thirdimage2} />
+                        {product.thirdimage2 && <img src={product.thirdimage2} /> }
                     </div>}
-                    {(product.a1h1 || product.a1h2) && <div className='col'>
+                    {(product.a1h1 || product.a1h2) && <div className='col col6'>
                         {product.a1h1 && <h2>{product.a1h1}</h2>}
                         {product.a1p1 && <p>{product.a1p1}</p>}
                         {product.a1h2 && <h2>{product.a1h2}</h2>}
@@ -78,22 +77,22 @@ const Portfolios = () => {
                         {product.a1p3 && <p>{product.a1p3}</p>}
                     </div>}
                   
-                    {(product.a2h1 || product.a2h2) && <div className='col'>
+                    {(product.a2h1 || product.a2h2) && <div className='col col7'>
                         {product.a2h1 && <h2>{product.a2h1}</h2>}
                         {product.a2p1 && <p>{product.a2p1}</p>}
                         {product.a2h2 && <h2>{product.a2h2}</h2>}
                         {product.a2p2 && <p>{product.a2p2}</p>}
                         {product.a2p3 && <p>{product.a2p3}</p>}
                     </div>}
-                    {product.fourthimage && <div className='col'>
-                        <img src={product.fourthimage} />
-                        <img src={product.fourthimage2} />
+                    {product.fourthimage && <div className='col col8'>
+                        {product.fourthimage && <img src={product.fourthimage} /> }
+                        {product.fourthimage2 && <img src={product.fourthimage2} /> }
                     </div>}               
             
-                    {product.fifthimage && <div className='col'>
+                    {product.fifthimage && <div className='col col9'>
                         <img src={product.fifthimage} />
                     </div>}
-                    {(product.a3h1 || product.a3h2) && <div className='col'>
+                    {(product.a3h1 || product.a3h2) && <div className='col col10'>
                         {product.a3h1 && <h2>{product.a3h1}</h2>}
                         {product.a3p1 && <p>{product.a3p1}</p>}
                         {product.a3h2 && <h2>{product.a3h2}</h2>}

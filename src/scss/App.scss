@@ -5,7 +5,7 @@
 @import "./about.scss";
 @import "./contact.scss";
 @import "./mixins.scss";
-@import "./portfolio.scss";
+@import "./portfolios.scss";
 @import "./variables.scss";
 
 
@@ -34,11 +34,11 @@
 }
 
 a {
-  font-weight: 500;
+  font-weight: $header;
   color: #ffffff;
   text-decoration: none;
   &:hover{
-    font-weight: 700;
+    text-decoration: underline;
   }
   &:focus{
     text-decoration: underline;
@@ -50,12 +50,12 @@ a {
 
 .container{
   width: 90vw;
-  max-width: 1000px;
+  max-width: 1200px;
   min-height: 83vh;
   margin: 0 auto; 
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background-color: #0C0C0C;
 }

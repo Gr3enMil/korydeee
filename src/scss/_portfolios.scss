@@ -4,15 +4,16 @@
 
 
 .portContainer {
-    width: 90%;
     max-width: 400px;
     margin: 0 auto;
+    font-family: $fontArchivo;
     @include tablet{
         max-width: 730px;
     }
     @include desktop{
         max-width: 805px;
     }
+    
     .portMain{
         width: 100%;
         display: flex;
@@ -39,13 +40,22 @@
         }
         .row{
             display: flex;
-            gap: 0.5em;
+            flex-wrap: wrap;
+            margin: auto;
+            gap: 1em;
             justify-content: center;
             margin-bottom: 2em;
+            .col{
+                width: 22rem;
+                img {
+                    max-width: 22rem;
+                    
+                }
+            }
             } 
         .col{
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             margin-bottom: 2em;
             width: 100%;
             @include tablet{
@@ -55,24 +65,33 @@
                 width: 48%;
             }
             h1{
-                font-size: 36px;
+                font-size: $h1m;
                 line-height: 39.17px;
-                font-weight: 600;
+                font-weight: $header;
             }
             h2{
-                font-size: 20px;
+                font-size: $h3a;
                 line-height: 21.76px;
-                font-weight: 600;
+                font-weight: $header;
             }
             p{
-                font-size: 16px;
+                font-size: $p1;
                 line-height: 17.41px;
-                font-weight: 400;
+                font-weight: $text;
+            }
+            li {
+                font-size: $p1;
+                line-height: 17.41px;
+                font-weight: $text;
+                margin-bottom: 0.7rem;
             }
             img{
-                max-width: 100%;
+                max-width: 47%;
+                align-self: center;
+                margin: auto;
                 @include tablet{
-                    margin-top: 2em;
+                    margin: auto;
+                    
                 }
                 @include desktop{
                     margin-top: 2em;
@@ -88,10 +107,7 @@
             }
         }
         .previous{
-                margin: 0;
-        }
-        img{
-                max-width: 100%;
+            margin: 0;
         }
         .projects{
             font-size: 20px;
@@ -100,5 +116,44 @@
             width: 100%;
             text-align: center;
         }
+    }
+}
+
+@include mobile {
+    .col1 {
+        order: 1;
+    }
+    .col2 {
+        order: 2;
+    }
+    .col3 {
+        order: 3;
+    }
+    .col4 {
+        order: 4;
+    }
+    .col5 {
+        order: 6;
+    }
+    .col6 {
+        order: 5;
+    }
+    .col7 {
+        order: 7;
+    }
+    .col8 {
+        order: 8;
+    }
+    .col9 {
+        order: 9;
+    }
+    .col10 {
+        order: 10;
+    }
+    .projects {
+        order: 11;
+    }
+    .row {
+        order: 12;
     }
 }

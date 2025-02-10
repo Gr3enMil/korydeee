@@ -1,14 +1,39 @@
+import {useState, useRef} from 'react';
+
+
 const Contact = () => {
+  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    gdpr: false,
+});
+
+  const formRef = useRef(null);
+  
+  const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+  setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+  }));
+};
+
+  const isFormValid = formData.name.trim() && formData.email.trim() && formData.subject.trim();
+
   const linkedClick = () => { // odkaz na LinkedIn
       window.open('https://www.linkedin.com/in/danielkorous/', '_blank')
   }
 
   const mailClick = () => { // odkaz na email
-      window.open('mailto: haha, troubo', '_blank')
+      window.open('mailto: haha@troubo', '_blank')
   }
 
   const clicked = async (e) => {
       e.preventDefault();
+      
 
       // Získání hodnot z formuláře
       const name = document.getElementById("name").value;
@@ -17,8 +42,9 @@ const Contact = () => {
       const message = document.getElementById("message").value;
       const gdpr = document.getElementById("gdpr").checked;
 
+
       if (!gdpr) {
-          alert("Musíš souhlasit se zpracováním osobních údajů.");
+          setMessage("You must agree to the processing of personal data.");
           return;
       }
 
@@ -31,32 +57,43 @@ const Contact = () => {
               body: JSON.stringify(formData),
           });
 
-          const result = await response.json();
+          //const result = await response.json();
 
           if (response.ok) {
-              alert("Email byl úspěšně odeslán!");
+              setMessage("Email sent succesfully.");
+              setFormData({
+                name: "",
+                email: "",
+                subject: "",
+                message: "",
+                gdpr: false, // Odškrtne checkbox
+            });
+              formRef.current.reset();
           } else {
-              alert("Chyba při odesílání emailu: " + result.error);
+              setMessage("Error occured while sending email.");
           }
       } catch (error) {
           console.error("Chyba:", error);
-          alert("Nepodařilo se odeslat email.");
+          setMessage("Nepodařilo se odeslat email.");
       }
   };
 
   return (
       <main className="contact" id="contact">
-          <form className="contactForm">
+          <form ref={formRef} className="contactForm">
               <h2>Contact Form</h2>
-              <input type="text" placeholder="Name" id="name" name="name" required />
-              <input type="email" placeholder="Email" id="email" name="email" required />
-              <input type="text" placeholder="Subject" id="subject" name="subject" required />
+              <input type="text" placeholder="Name" id="name" name="name" onChange={handleChange} required />
+              <input type="email" placeholder="Email" id="email" name="email" onChange={handleChange} required />
+              <input type="text" placeholder="Subject" id="subject" name="subject" onChange={handleChange} required />
               <textarea id="message" placeholder="Message with additional information (optional field)" name="message" required />
+              {isFormValid && (
               <label>
                   <input type="checkbox" id="gdpr" name="gdpr" required />
                   <span>I agree to the processing of personal data.</span>
               </label>
+              )}
               <button type="submit" className='formButt' onClick={(e) => clicked(e)}>SEND</button>
+              <p className='formMessage'>{message}</p>
           </form>
           <div className="contactInfo">
               <div className='aboutButton' onClick={linkedClick}>

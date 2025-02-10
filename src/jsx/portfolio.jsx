@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react';
-import {Link} from "react-router-dom";
+import {Link} from "react-router-dom"; 
 
 const Portfolio = () => {
   const [page, setPage] = useState([]);
@@ -17,9 +17,9 @@ const Portfolio = () => {
         return (
                 <section className="pictureSection" key={id}>
                       <Link to={`/portfolios/${id}`} className={theme}>
-                          <h2>{title}</h2>
+                          <h1>{title}</h1>
                           <img src={titleimage} />
-                          <p>{role}</p>
+                          <h3>{role}</h3>
                       </Link>
                 </section>       
         )

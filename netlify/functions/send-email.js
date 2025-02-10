@@ -34,7 +34,7 @@ export async function handler(event) {
 
         // ✅ Odeslání emailu
         await transporter.sendMail({
-            from: `"${name}" <${email}>`,
+            from: "gr3en@seznam.cz",
             to: "gr3en@seznam.cz",
             subject: subject,
             text: message,
