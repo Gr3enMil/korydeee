@@ -53,7 +53,7 @@ const Home = () => { //main page
             <div className="headerContainer">
               <div className="filler"></div>
               <div className="headerLogo">
-                <div className='kory'>KOROUS.DESIGN</div>
+                <div className='kory'><a href="/" className='link'>KOROUS.DESIGN</a></div>
               </div>
               <div className="headerMenu">
                       <div className={menu} onClick={allHidden}>

@@ -3,15 +3,19 @@
 
 
 .header{
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 5;
+    width: 100vw;
     border-bottom: 2px solid rgba(255, 255, 255, 0.438);
     height: 3.8em;
-    margin-top: 0.5em;
-    margin-bottom: 2rem;
-    padding-bottom: 4px;
+    padding: 0.5rem 0 4px 0;
     background-color: #0C0C0C;
     font-family: $fontArchivo;
+    .link:hover {
+      text-decoration: none;
+    }
   }
   .headerContainer{   
     width: 85vw;
