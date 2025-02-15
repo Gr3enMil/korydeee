@@ -12,7 +12,12 @@ const Portfolios = () => {
           setSize(x=>x+1) //state change given to parent
           setPage(data);
           setLoad(false);
+
       })();
+    }, [setSize]);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
     // id to identify object from json
     let { id } = useParams();
@@ -20,18 +25,18 @@ const Portfolios = () => {
     let next = ((Number(id) + 1) > page.length)? 1 : Number(id) + 1;
     //variable for previous url
     let prev = (Number(id) - 1) === 0? page.length : Number(id) - 1;
+    
     //function for previous page
-    let prevPage = () => {
+    /*let prevPage = () => {
         setSize(x=>x+1) 
-    }
+    } */
   
     const product = page.find(product => String(product.id) === id);
-    const slowScroll = () => {window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    }
+    const slowScroll = () => {
+        requestAnimationFrame(() => {
+            window.scrollTo({ top: 0, left:0, behavior: "smooth" });
+        });
+    };
 
     
     if (load){ // condition to render page after useEffect load
@@ -40,7 +45,7 @@ const Portfolios = () => {
     return (
         <div className='portContainer' key={id}>
             <div className='portMain' >
-                <button onClick={prevPage}><Link to="../"><span></span> Back to portfolio</Link></button>
+                {/*<button onClick={prevPage} className="back"><Link to="../"><span></span> Back to portfolio</Link></button> */}
                     <div className='col col1'>
                         <h1>{product.title}</h1>
                         <p>{product.titleparagraph}</p>
@@ -101,8 +106,8 @@ const Portfolios = () => {
                 
                 <h2 className='projects'>More projects</h2>
                 <div className='row'>
-                    <div className='col previous' onClick={slowScroll}>
-                        <Link to={`/portfolios/${prev}`}>
+                    <div className='col previous' >
+                        <Link to={`/portfolios/${prev}`} onClick={slowScroll}>
                             <img src={`../title${prev}.png`} />
                         </Link>
                     </div>

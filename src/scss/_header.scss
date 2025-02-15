@@ -45,7 +45,7 @@
     }
   .menu{
     position: relative;
-    margin-top: -20%;
+    margin-top: 0;
     @include tablet{
     padding: 0.5em;
     }
@@ -58,7 +58,7 @@
       background-color: $colorMain;
       border-radius: 2px;
       height: 3px;
-      width: 1.3rem;
+      width: 1.55rem;
       margin: 6px;
     }
   }

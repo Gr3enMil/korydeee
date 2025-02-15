@@ -8,18 +8,22 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 const App = () => {
   
   return(
-    <Routes>
-      <Route path="/" element={<Home/>} >
-        <Route index element={<Portfolio/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/portfolios/:id" element={<Portfolios/>} />
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home/>} >
+            <Route index element={<Portfolio/>} />
+            <Route path="/about" element={<About/>} />
+            <Route path="/contact" element={<Contact/>} />
+            <Route path="/portfolios/:id" element={<Portfolios/>} />
+          </Route>
+        </Routes>
+    </>
   )
 }
 

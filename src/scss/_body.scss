@@ -13,12 +13,13 @@
     font-size: $h1m;
     font-weight: $header;
     max-width: 18rem;
+    margin-left: 1.6rem;
   }
   h3 {
     font-size: $h3a;
     font-weight: $header;
     color: rgba(255, 255, 255, 0.473);
-    margin-left: 1rem;
+    margin-left: 1.6rem;
   }
   @include tablet{
     width: 46rem;

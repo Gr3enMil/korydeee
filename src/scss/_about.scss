@@ -11,7 +11,7 @@ h2 {
     width: 100%;
 }
 p {
-    font-size: $pm;
+    font-size: $p1;
     line-height: 1.1rem;
 }
 
@@ -46,6 +46,7 @@ p {
         flex-wrap: wrap;
         justify-content: center;
         max-width: 20rem; 
+        
         @include tablet{
             max-width: 100%;
         }

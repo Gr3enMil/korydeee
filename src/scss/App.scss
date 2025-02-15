@@ -17,6 +17,10 @@
   background-color: #0C0C0C;
 }
 
+body {
+  overflow: auto;
+}
+
 /*.hidden{              pitty that guy don't want this feature
   display: none;
 } */
@@ -59,7 +63,7 @@ a {
   justify-content: center;
   background-color: #0C0C0C;
   padding-top: 6rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
 button{
