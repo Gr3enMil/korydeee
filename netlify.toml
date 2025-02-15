@@ -5,3 +5,8 @@
 
 [functions]
   included_files = ["dist/assets/**"]
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
