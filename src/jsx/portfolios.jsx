@@ -5,6 +5,7 @@ const Portfolios = () => {
     const [size, setSize] = useOutletContext()
     const [page, setPage] = useState([]);
     const [load, setLoad] = useState(true);
+
     useEffect(() => {
         (async () => {
           const data = await fetch("../project.json")
@@ -14,11 +15,10 @@ const Portfolios = () => {
           setLoad(false);
 
       })();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }, [setSize]);
 
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
+ 
     // id to identify object from json
     let { id } = useParams();
     // variable for next url
@@ -33,9 +33,11 @@ const Portfolios = () => {
   
     const product = page.find(product => String(product.id) === id);
     const slowScroll = () => {
+        setTimeout(() => {
         requestAnimationFrame(() => {
             window.scrollTo({ top: 0, left:0, behavior: "smooth" });
         });
+        }, 50);
     };
 
     
@@ -106,13 +108,13 @@ const Portfolios = () => {
                 
                 <h2 className='projects'>More projects</h2>
                 <div className='row'>
-                    <div className='col previous' >
-                        <Link to={`/portfolios/${prev}`} onClick={slowScroll}>
+                    <div className='col previous' onClick={slowScroll}>
+                        <Link to={`/portfolios/${prev}`} >
                             <img src={`../title${prev}.png`} />
                         </Link>
                     </div>
-                    <div className='col next' onClick={slowScroll}>
-                        <Link to={`/portfolios/${next}`}>
+                    <div className='col next'onClick={slowScroll}>
+                        <Link to={`/portfolios/${next}`} >
                             <img src={`../title${next}.png`} />
                         </Link>
                     </div>
