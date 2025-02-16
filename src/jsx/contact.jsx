@@ -28,7 +28,7 @@ const Contact = () => {
   }
 
   const mailClick = () => { // odkaz na email
-      window.open('mailto: haha@troubo', '_blank')
+      window.location.href = "mailto:daniel@korous.design";
   }
 
   const clicked = async (e) => {

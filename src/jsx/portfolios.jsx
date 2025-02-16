@@ -33,9 +33,6 @@ const Portfolios = () => {
     } */
   
     const product = page.find(product => String(product.id) === id);
-    const slowScroll = () => {
-    
-    };
 
     
     if (load){ // condition to render page after useEffect load
@@ -105,12 +102,12 @@ const Portfolios = () => {
                 
                 <h2 className='projects'>More projects</h2>
                 <div className='row'>
-                    <div className='col previous' onClick={slowScroll}>
+                    <div className='col previous'>
                         <Link to={`/portfolios/${prev}`} >
                             <img src={`../title${prev}.png`} />
                         </Link>
                     </div>
-                    <div className='col next'onClick={slowScroll}>
+                    <div className='col next'>
                         <Link to={`/portfolios/${next}`} >
                             <img src={`../title${next}.png`} />
                         </Link>
