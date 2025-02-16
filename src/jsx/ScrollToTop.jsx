@@ -11,11 +11,11 @@ const ScrollToTop = () => {
 
         // ✅ První pokus
         requestAnimationFrame(() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            window.scrollTo({ top: 0});
 
             // ✅ Druhý pokus po krátké době (pro případ, že první selže)
             setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                window.scrollTo({ top: 0});
             }, 50);
         });
     }, [pathname]);

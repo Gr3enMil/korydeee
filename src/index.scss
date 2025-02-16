@@ -7,13 +7,18 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: auto; /* ✅ Zabrání Firefoxu v "chytrém" scrollování */
-
 }
 
+
 html {
-  scroll-behavior: auto; 
-  -webkit-overflow-scrolling: auto;
-}  
+  scroll-behavior: smooth; /* Výchozí chování pro všechny prohlížeče */
+}
+
+/* ❌ Zruší `scroll-behavior` POUZE pro Firefox */
+@supports (-moz-appearance: none) {
+  html {
+      scroll-behavior: auto;
+  }
+}
 
 

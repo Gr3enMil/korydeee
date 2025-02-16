@@ -15,8 +15,9 @@ const Portfolios = () => {
           setLoad(false);
 
       })();
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }, [setSize]);
+
+    
 
  
     // id to identify object from json
@@ -33,11 +34,7 @@ const Portfolios = () => {
   
     const product = page.find(product => String(product.id) === id);
     const slowScroll = () => {
-        setTimeout(() => {
-        requestAnimationFrame(() => {
-            window.scrollTo({ top: 0, left:0, behavior: "smooth" });
-        });
-        }, 50);
+    
     };
 
     
