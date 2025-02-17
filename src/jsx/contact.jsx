@@ -1,4 +1,5 @@
 import {useState, useRef} from 'react';
+import { Helmet } from "react-helmet-async";
 
 
 const Contact = () => {
@@ -79,6 +80,11 @@ const Contact = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Contact | Korous Design</title>
+        <meta name="description" content="Contact us if you want to cooperate!" />
+      </Helmet>
       <main className="contact" id="contact">
           <form ref={formRef} className="contactForm">
               <h2>Contact Form</h2>
@@ -104,6 +110,7 @@ const Contact = () => {
               </div>
           </div>
       </main>
+      </>
   )
 }
 

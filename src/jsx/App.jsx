@@ -9,20 +9,23 @@ import {
   Route,
 } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
+import { HelmetProvider } from "react-helmet-async";
 
 const App = () => {
-  
-  return(
+
+  return (
     <>
-      <ScrollToTop />
+      <HelmetProvider>
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home/>} >
-            <Route index element={<Portfolio/>} />
-            <Route path="/about" element={<About/>} />
-            <Route path="/contact" element={<Contact/>} />
-            <Route path="/portfolios/:id" element={<Portfolios/>} />
+          <Route path="/" element={<Home />} >
+            <Route index element={<Portfolio />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolios/:id" element={<Portfolios />} />
           </Route>
         </Routes>
+      </HelmetProvider>
     </>
   )
 }

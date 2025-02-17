@@ -15,7 +15,7 @@
     max-width: 18rem;
     margin-left: 1.6rem;
   }
-  h3 {
+  h2 {
     font-size: $h3a;
     font-weight: $header;
     color: rgba(255, 255, 255, 0.473);
@@ -67,7 +67,7 @@
           z-index: 4;
             transform: translate(-4.6rem, 0.5rem) scale(1.4);
           }
-        &:hover h1, &:hover h3{
+        &:hover h1, &:hover h2{
           opacity: 0;
         }
                   
