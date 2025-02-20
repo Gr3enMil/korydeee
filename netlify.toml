@@ -7,7 +7,7 @@
   included_files = ["dist/assets/**"]
 
 [[redirects]]
-  from = "/assets/*"
-  to = "/assets/:splat"
+  from = "/*"
+  to = "/index.html"
   status = 200
 

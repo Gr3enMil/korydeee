@@ -1,11 +1,7 @@
 @import "./mixins.scss";
 @import "./variables.scss";
 
-h2 {
-    font-size: $h2m;
-    font-weight: $header;
-    margin-bottom: 0.5rem;
-}
+
 
 .contact {
     width: 100%;
@@ -14,6 +10,11 @@ h2 {
     align-items: center;
     text-align: center;
     font-family: $fontArchivo;
+    h2 {
+        font-size: $h2m;
+        font-weight: $header;
+        margin-bottom: 0.5rem;
+    }
     @media (min-width: 1248px) {
         flex-direction: row;
         justify-content: space-around;
