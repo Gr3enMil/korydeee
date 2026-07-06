@@ -9,16 +9,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 html {
-  scroll-behavior: smooth; /* Výchozí chování pro všechny prohlížeče */
+  scroll-behavior: smooth;
 }
 
-/* ❌ Zruší `scroll-behavior` POUZE pro Firefox */
 @supports (-moz-appearance: none) {
   html {
-      scroll-behavior: auto;
+    scroll-behavior: auto;
   }
 }
-
-

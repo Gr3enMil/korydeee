@@ -1,20 +1,32 @@
-import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const Portfolio = () => {
   const [page, setPage] = useState([]);
+  const [error, setError] = useState("");
+
   useEffect(() => {
     (async () => {
-      const data = await fetch("../project.json")
-        .then(res => res.json())
+      try {
+        const response = await fetch("/project.json");
 
-      setPage(data);
+        if (!response.ok) {
+          throw new Error("Could not load portfolio data.");
+        }
+
+        const data = await response.json();
+        setPage(data);
+      } catch (loadError) {
+        console.error(loadError);
+        setError("Portfolio data could not be loaded.");
+      }
     })();
   }, []);
 
-  const portfolioItems = page.map(item => {
+  const portfolioItems = page.map((item) => {
     const { id, theme, role, title, titleimage } = item;
+
     return (
       <section className="pictureSection" key={id}>
         <Link to={`/portfolios/${id}`} className={theme}>
@@ -23,8 +35,8 @@ const Portfolio = () => {
           <h2>{role}</h2>
         </Link>
       </section>
-    )
-  })
+    );
+  });
 
   return (
     <>
@@ -33,11 +45,10 @@ const Portfolio = () => {
         <meta name="description" content="Choose whatever fits you the most." />
       </Helmet>
       <main className="portfolio" id="portfolio">
-        {portfolioItems}
+        {error || portfolioItems}
       </main>
     </>
-  )
-}
-
+  );
+};
 
 export default Portfolio;

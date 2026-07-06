@@ -1,128 +1,153 @@
-import { useState, useEffect } from 'react';
-import { Link, useParams, useOutletContext } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 
 const Portfolios = () => {
-    const [size, setSize] = useOutletContext()
-    const [page, setPage] = useState([]);
-    const [load, setLoad] = useState(true);
+  const [, setSize] = useOutletContext();
+  const [page, setPage] = useState([]);
+  const [load, setLoad] = useState(true);
+  const [error, setError] = useState("");
 
-    useEffect(() => {
-        (async () => {
-            const data = await fetch("../project.json")
-                .then(res => res.json())
-            setSize(x => x + 1) //state change given to parent
-            setPage(data);
-            setLoad(false);
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch("/project.json");
 
-        })();
-    }, [setSize]);
+        if (!response.ok) {
+          throw new Error("Could not load portfolio data.");
+        }
 
+        const data = await response.json();
+        setSize((x) => x + 1);
+        setPage(data);
+      } catch (loadError) {
+        console.error(loadError);
+        setError("Portfolio detail could not be loaded.");
+      } finally {
+        setLoad(false);
+      }
+    })();
+  }, [setSize]);
 
+  const { id } = useParams();
+  const next = Number(id) + 1 > page.length ? 1 : Number(id) + 1;
+  const prev = Number(id) - 1 === 0 ? page.length : Number(id) - 1;
+  const product = page.find((item) => String(item.id) === id);
 
+  if (load) {
+    return <div>Loading...</div>;
+  }
 
-    // id to identify object from json
-    let { id } = useParams();
-    // variable for next url
-    let next = ((Number(id) + 1) > page.length) ? 1 : Number(id) + 1;
-    //variable for previous url
-    let prev = (Number(id) - 1) === 0 ? page.length : Number(id) - 1;
+  if (error || !product) {
+    return <div>{error || "Portfolio item was not found."}</div>;
+  }
 
-    //function for previous page
-    /*let prevPage = () => {
-        setSize(x=>x+1) 
-    } */
+  return (
+    <>
+      <Helmet>
+        <title>{product.title} | Korous Design</title>
+        <meta name="description" content="Look at this beautiful style!" />
+      </Helmet>
+      <div className="portContainer" key={id}>
+        <div className="portMain">
+          <div className="col col1">
+            <h1>{product.title}</h1>
+            <p>{product.titleparagraph}</p>
+            <p>{product.titleparagraph2}</p>
+            <p>Role: {product.role}</p>
+          </div>
+          <div className="col col2">
+            <img src={product.titleimage} alt={product.title} />
+          </div>
 
-    const product = page.find(product => String(product.id) === id);
-
-
-    if (load) { // condition to render page after useEffect load
-        return <div>Loading...</div>
-    }
-    return (
-        <>
-            <Helmet>
-                <title>{product.title} | Korous Design</title>
-                <meta name="description" content="Look at this beautiful style!" />
-            </Helmet>
-            <div className='portContainer' key={id}>
-                <div className='portMain' >
-                    {/*<button onClick={prevPage} className="back"><Link to="../"><span></span> Back to portfolio</Link></button> */}
-                    <div className='col col1'>
-                        <h1>{product.title}</h1>
-                        <p>{product.titleparagraph}</p>
-                        <p>{product.titleparagraph2} </p>
-                        <p>Role: {product.role}</p>
-                    </div>
-                    <div className='col col2'>
-                        <img src={product.titleimage} />
-                    </div>
-
-                    <div className='col col3'>
-                        <h2>Problem</h2>
-                        <p>{product.problem}</p>
-                        <h2>Solution</h2>
-                        <p>{product.solution}</p>
-                        {product.dot1 && <ul>
-                            <li>{product.dot1}</li>
-                            <li>{product.dot2}</li>
-                            <li>{product.dot3}</li>
-                        </ul>}
-                    </div>
-                    <div className='col col4'>
-                        {product.secondimage && <img src={product.secondimage} />}
-                        {product.secondimage2 && <img src={product.secondimage2} />}                    </div>
-                    {product.thirdimage && <div className='col col5'>
-                        <img src={product.thirdimage} />
-                        {product.thirdimage2 && <img src={product.thirdimage2} />}
-                    </div>}
-                    {(product.a1h1 || product.a1h2) && <div className='col col6'>
-                        {product.a1h1 && <h2>{product.a1h1}</h2>}
-                        {product.a1p1 && <p>{product.a1p1}</p>}
-                        {product.a1h2 && <h2>{product.a1h2}</h2>}
-                        {product.a1p2 && <p>{product.a1p2}</p>}
-                        {product.a1p3 && <p>{product.a1p3}</p>}
-                    </div>}
-
-                    {(product.a2h1 || product.a2h2) && <div className='col col7'>
-                        {product.a2h1 && <h2>{product.a2h1}</h2>}
-                        {product.a2p1 && <p>{product.a2p1}</p>}
-                        {product.a2h2 && <h2>{product.a2h2}</h2>}
-                        {product.a2p2 && <p>{product.a2p2}</p>}
-                        {product.a2p3 && <p>{product.a2p3}</p>}
-                    </div>}
-                    {product.fourthimage && <div className='col col8'>
-                        {product.fourthimage && <img src={product.fourthimage} />}
-                        {product.fourthimage2 && <img src={product.fourthimage2} />}
-                    </div>}
-
-                    {product.fifthimage && <div className='col col9'>
-                        <img src={product.fifthimage} />
-                    </div>}
-                    {(product.a3h1 || product.a3h2) && <div className='col col10'>
-                        {product.a3h1 && <h2>{product.a3h1}</h2>}
-                        {product.a3p1 && <p>{product.a3p1}</p>}
-                        {product.a3h2 && <h2>{product.a3h2}</h2>}
-                        {product.a3p2 && <p>{product.a3p2}</p>}
-                    </div>}
-
-                    <h2 className='projects'>More projects</h2>
-                    <div className='row'>
-                        <div className='col previous'>
-                            <Link to={`/portfolios/${prev}`} >
-                                <img src={`../title${prev}.png`} />
-                            </Link>
-                        </div>
-                        <div className='col next'>
-                            <Link to={`/portfolios/${next}`} >
-                                <img src={`../title${next}.png`} />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
+          <div className="col col3">
+            <h2>Problem</h2>
+            <p>{product.problem}</p>
+            <h2>Solution</h2>
+            <p>{product.solution}</p>
+            {product.dot1 && (
+              <ul>
+                <li>{product.dot1}</li>
+                <li>{product.dot2}</li>
+                <li>{product.dot3}</li>
+              </ul>
+            )}
+          </div>
+          <div className="col col4">
+            {product.secondimage && (
+              <img src={product.secondimage} alt={`${product.title} example 1`} />
+            )}
+            {product.secondimage2 && (
+              <img src={product.secondimage2} alt={`${product.title} example 2`} />
+            )}
+          </div>
+          {product.thirdimage && (
+            <div className="col col5">
+              <img src={product.thirdimage} alt={`${product.title} example 3`} />
+              {product.thirdimage2 && (
+                <img src={product.thirdimage2} alt={`${product.title} example 4`} />
+              )}
             </div>
-        </>
-    )
-}
+          )}
+          {(product.a1h1 || product.a1h2) && (
+            <div className="col col6">
+              {product.a1h1 && <h2>{product.a1h1}</h2>}
+              {product.a1p1 && <p>{product.a1p1}</p>}
+              {product.a1h2 && <h2>{product.a1h2}</h2>}
+              {product.a1p2 && <p>{product.a1p2}</p>}
+              {product.a1p3 && <p>{product.a1p3}</p>}
+            </div>
+          )}
 
-export default Portfolios; 
+          {(product.a2h1 || product.a2h2) && (
+            <div className="col col7">
+              {product.a2h1 && <h2>{product.a2h1}</h2>}
+              {product.a2p1 && <p>{product.a2p1}</p>}
+              {product.a2h2 && <h2>{product.a2h2}</h2>}
+              {product.a2p2 && <p>{product.a2p2}</p>}
+              {product.a2p3 && <p>{product.a2p3}</p>}
+            </div>
+          )}
+          {product.fourthimage && (
+            <div className="col col8">
+              <img src={product.fourthimage} alt={`${product.title} example 5`} />
+              {product.fourthimage2 && (
+                <img src={product.fourthimage2} alt={`${product.title} example 6`} />
+              )}
+            </div>
+          )}
+
+          {product.fifthimage && (
+            <div className="col col9">
+              <img src={product.fifthimage} alt={`${product.title} example 7`} />
+            </div>
+          )}
+          {(product.a3h1 || product.a3h2) && (
+            <div className="col col10">
+              {product.a3h1 && <h2>{product.a3h1}</h2>}
+              {product.a3p1 && <p>{product.a3p1}</p>}
+              {product.a3h2 && <h2>{product.a3h2}</h2>}
+              {product.a3p2 && <p>{product.a3p2}</p>}
+            </div>
+          )}
+
+          <h2 className="projects">More projects</h2>
+          <div className="row">
+            <div className="col previous">
+              <Link to={`/portfolios/${prev}`}>
+                <img src={`/title${prev}.png`} alt="Previous project" />
+              </Link>
+            </div>
+            <div className="col next">
+              <Link to={`/portfolios/${next}`}>
+                <img src={`/title${next}.png`} alt="Next project" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Portfolios;

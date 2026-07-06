@@ -1,37 +1,16 @@
-@import "./mixins.scss";
 @import "./variables.scss";
 
-.rollup{
-  transform: rotate(90deg);
-  cursor: pointer;
-  border-radius: 50%;
-  position: absolute;
-  top: -7em;
-  a{
-    font-size: 4em;
-    opacity: 0.3;
-    font-weight: 100;
-    color: rgba(158, 157, 157, 0.479);
-    &:focus{
-    text-decoration: none;
-    }
-  }
-  @include mobile {
-    left: 45%;
-  }
-  @include picture2 {
-    left: 46%;
-  }
-  @include picture3 {
-    left: 47%;
-  }
-  @include tablet {
-    left: 48%;
-  }
-  @include desktop {
-    left: 48.5%;
-  }
-  img{
-    width: 100%;
-  }
+.footerContainer {
+  width: 85vw;
+  margin: 0 auto;
+  color: $colorMain;
+  font-family: $fontArchivo;
+}
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  font-weight: $text;
+  text-align: center;
 }

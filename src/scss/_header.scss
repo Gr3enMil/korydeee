@@ -46,6 +46,9 @@
   .menu{
     position: relative;
     margin-top: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
     @include tablet{
     padding: 0.5em;
     }

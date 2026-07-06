@@ -1,8 +1,6 @@
 @import "./mixins.scss";
 @import "./variables.scss";
 
-
-
 .contact {
     width: 100%;
     display: flex;
@@ -56,13 +54,13 @@
         #gdpr:checked::after {
             content: "";
             position: absolute;
-            width: 6px; /* Délka první čárky */
-            height: 14px; /* Délka druhé čárky */
-            border-bottom: 2px solid white; /* Spodní část fajfky */
-            border-right: 2px solid white; /* Pravá část fajfky */
-            transform: rotate(45deg) translate(1px, -3px); /* Natočení do tvaru fajfky */
-            top: 3px; /* Posun dolů */
-            left: 5px; /* Posun doprava */
+            width: 6px;
+            height: 14px;
+            border-bottom: 2px solid white;
+            border-right: 2px solid white;
+            transform: rotate(45deg) translate(1px, -3px);
+            top: 3px;
+            left: 5px;
         }
         span {
             color: rgba(255, 255, 255, 0.473);
@@ -74,10 +72,21 @@
             height: 4rem;
             font-weight: $header;
         }
+        .formButt:disabled {
+            cursor: not-allowed;
+            opacity: 0.45;
+        }
         .formMessage {
             color: rgb(255, 255, 255);
             font-weight: 300;
             font-size: 1rem;
+            min-height: 1.25rem;
+        }
+        .formMessage.error {
+            color: #ffb6b6;
+        }
+        .formMessage.success {
+            color: #b8f5ce;
         }
     }
 
@@ -94,6 +103,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: transparent;
+            border: 0;
+            color: $colorMain;
+            font-family: $fontArchivo;
             font-weight: $header;
             font-size: $h3m;
             gap: 2rem;

@@ -1,44 +1,44 @@
-import { useState } from 'react';
-import '../scss/App.scss'
-import {
-  Link,
-  Outlet,
-} from "react-router-dom";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link, Outlet } from "react-router-dom";
+import "../scss/App.scss";
 
-const Home = () => { //main page 
-  const [size, setSize] = useState(0)
-  const [container, setContainer] = useState("container")
-  const [nav, setNav] = useState("nav")
-  const [menu, setMenu] = useState("menu")
-  const [footer, setFooter] = useState("headerContainer")
+const Home = () => {
+  const [size, setSize] = useState(0);
+  const [container, setContainer] = useState("container");
+  const [nav, setNav] = useState("nav");
+  const [menu, setMenu] = useState("menu");
 
- 
-
-  const visible = () => { // show main po kliknuti v menu
+  const visible = () => {
     if (window.innerWidth < 1080) {
-      container === "container" ? setContainer("hidden") : setContainer("container")
-      setMenu("menu")
-      setNav("nav")
-      setFooter("footerContainer headerContainer")
+      setContainer("container");
+      setMenu("menu");
+      setNav("nav");
     }
-    setSize(x => x + 1)
-  }
 
-  const allHidden = () => { // menu
-    container === "container" ? setContainer("container hidden") : setContainer("container")
-    menu === "menu" ?
+    setSize((x) => x + 1);
+  };
+
+  const allHidden = () => {
+    setContainer(container === "container" ? "container hidden" : "container");
+
+    if (menu === "menu") {
       setTimeout(() => {
-        setMenu("menu cross")
-      }, 10) : setMenu("menu")
-    nav === "nav" ?
-      (setNav("nav mobileMenu1"),
-        setTimeout(() => { //transition efekt po nacteni display:block
-          setNav("nav mobileMenu1 mobileMenu2")
-        }, 10)) : setNav("nav")
-    footer === "footerContainer headerContainer" ? setFooter("closed") : null
-    footer === "closed" ? setFooter("footerContainer headerContainer") : null
-  }
+        setMenu("menu cross");
+      }, 10);
+    } else {
+      setMenu("menu");
+    }
+
+    if (nav === "nav") {
+      setNav("nav mobileMenu1");
+      setTimeout(() => {
+        setNav("nav mobileMenu1 mobileMenu2");
+      }, 10);
+    } else {
+      setNav("nav");
+    }
+  };
 
   return (
     <>
@@ -50,19 +50,35 @@ const Home = () => { //main page
         <div className="headerContainer">
           <div className="filler"></div>
           <div className="headerLogo">
-            <div className='kory'><a href="/" className='link'>KOROUS.DESIGN</a></div>
+            <div className="kory">
+              <a href="/" className="link">
+                KOROUS.DESIGN
+              </a>
+            </div>
           </div>
           <div className="headerMenu">
-            <div className={menu} onClick={allHidden}>
+            <button type="button" className={menu} onClick={allHidden} aria-label="Toggle menu">
               <span></span>
               <span></span>
               <span></span>
-            </div>
+            </button>
             <nav className={nav}>
               <ul>
-                <li><Link to="/" onClick={visible}>Portfolio</Link></li>
-                <li><Link to="/about" onClick={visible}>About</Link></li>
-                <li><Link to="/contact" onClick={visible}>Contact</Link></li>
+                <li>
+                  <Link to="/" onClick={visible}>
+                    Portfolio
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" onClick={visible}>
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" onClick={visible}>
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -72,7 +88,7 @@ const Home = () => { //main page
         <Outlet context={[size, setSize]} />
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Home;
